@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirill Otsebrik</title>
+    <link rel="stylesheet" href="./css/style.css?ver-4567">
+</head>
+
+<body>
+    <header>
+        <a href="./index.html" class="logo">OTSEBRIK</a>
+        <button class="menu"><span></span></button>
+        <nav>
+            <a href="./index.html#main">ABOUT</a>
+            <a href="./index.html#projects">PROJECTS</a>
+            <a href="#">RESUME</a>
+        </nav>
+        <div class="lang">
+            <a href="#" class="active">EN</a>
+            <a href="#">RU</a>
+        </div>
+
+    </header>
+
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="title-wrap">
+            <div class="col" data-aos="fade-up" data-aos-delay="300">
+                <h1 class="headline">Overview</h1>
+            </div>
+            <div class="col" data-aos="fade-up" data-aos-delay="400">
+                <p>
+                    Snabzhenits — cashback service for businesses, which helps businesses save on purchases of building
+                    materials and return for them up to 30% of the money from each purchase
+                </p>
+            </div>
+        </div>
+        <div class="card-gradient" style="background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%)"></div>
+    </section>
+
+    <section>
+        <div class="title-wrap">
+            <div class="col" data-aos="fade-up">
+                <h2 class="headline">Task</h2>
+            </div>
+            <div class="col" data-aos="fade-up" data-aos-delay="200">
+                <p>
+                    To develop a modern and convenient web service where the customer could arrange for the goods with
+                    delivery and get a cashback for their purchases, via phone or computer
+                </p>
+                <p class="descr">It has been done:</p>
+                <ul>
+                    <li>Web service with online store capability</li>
+                    <li>10 unique interior pages</li>
+                    <li>Landing page</li>
+                    <li>User's personal cabinet</li>
+                    <li>All adapted for the phone</li>
+                </ul>
+            </div>
+        </div>
+
+        <img data-src="./img/item-2.jpg" data-aos="fade-up" data-aos-delay="200" loading="lazy" alt="item">
+
+    </section>
+
+    <section class="info">
+        <h2 class="headline" data-aos="fade-up">Internal pages</h2>
+        <div class="wrap">
+            <div class="col">
+                <img alt="img" data-src="./img/i-1.jpg" loading="lazy" data-aos="fade-up">
+                <img alt="img" data-src="./img/i-2.jpg" loading="lazy" data-aos="fade-up">
+                <img alt="img" data-src="./img/i-3.jpg" loading="lazy" data-aos="fade-up">
+            </div>
+            <div class="col">
+                <img alt="img" data-src="./img/i-4.jpg" loading="lazy" data-aos="fade-up">
+                <img alt="img" data-src="./img/i-5.jpg" loading="lazy" data-aos="fade-up">
+                <img alt="img" data-src="./img/i-6.jpg" loading="lazy" data-aos="fade-up">
+                <img alt="img" data-src="./img/i-7.jpg" loading="lazy" data-aos="fade-up">
+            </div>
+        </div>
+    </section>
+
+    <section class="info">
+        <h2 class="headline" data-aos="fade-up">Adaptives</h2>
+        <img alt="img" data-src="./img/i-8.jpg" data-aos="fade-up" data-aos-delay="200" loading="lazy">
+    </section>
+
+    <footer>
+        <img data-src="img/heart.png" data-aos="fade-up" loading="lazy" alt="heart">
+        <p class="text" data-aos="fade-up" data-aos-delay="100">If you are thinking about hiring me or would like to
+            discuss a project, get
+            in touch with me</p>
+        <nav class="wrap" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" target="_blank">FACEBOOK</a>
+            <a href="#" target="_blank">VK</a>
+            <a href="#" target="_blank">INSTAGRAM</a>
+            <a href="#" target="_blank">GMAIL</a>
+            <a href="#" target="_blank">BEHANCE</a>
+        </nav>
+        <p class="descr" data-aos="fade-up" data-aos-delay="300">
+            UX/UI Design
+            <br>
+            <br>
+            Moscow · Remote
+        </p>
+    </footer>
+
+    <script>
+        if (window.innerWidth >= 1100) {
+            const SCRIPT_AOS = document.createElement('script'),
+                CSS_AOS = document.createElement('link');
+
+            CSS_AOS.type = "text/css";;
+            CSS_AOS.rel = 'stylesheet';
+            CSS_AOS.href = "https://unpkg.com/aos@next/dist/aos.css";
+            document.getElementsByTagName("head")[0].appendChild(CSS_AOS);
+
+            SCRIPT_AOS.src = 'https://unpkg.com/aos@next/dist/aos.js';
+            document.body.appendChild(SCRIPT_AOS);
+            SCRIPT_AOS.onload = () => {
+                AOS.init({
+                    duration: 400,
+                    mirror: false,
+                    once: true,
+                });
+            }
+
+        } else { false }
+
+        // LazySizes library
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // Dynamically import the LazySizes library
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+
+        var links = document.querySelectorAll('a[href^="#"]'),
+            menu = document.querySelector('.menu');
+
+        menu.addEventListener('click', function () {
+            this.classList.toggle('active')
+            document.querySelector('header').classList.toggle('active')
+        })
+
+        links.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                links.forEach(e => { e.classList.remove('active') })
+                this.classList.add('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

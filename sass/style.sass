@@ -1,0 +1,230 @@
+@import 'normolize'
+@import 'elements'
+@import 'header'
+@import 'footer'
+
+.main
+    min-height: 100vh
+    // max-height: 1480px
+    // padding-top: 100px
+    display: flex
+    justify-content: center
+    align-items: center
+    h1
+        font-weight: 700
+        font-size: 50px
+        line-height: 61px
+        margin: 0 0 12px
+
+    .container
+        align-items: flex-start
+
+    picture
+        width: 38%
+
+    .title
+        width: 58%
+
+    p
+        max-width: 433px
+
+    ul
+        width: 48%
+        li
+
+.tags
+    justify-content: flex-start
+    span
+        display: inline-block
+        font-weight: 400
+        font-size: 20px
+        line-height: 140%
+        padding: 4px 8px
+        border: 1px solid #FFFFFF
+        border-radius: 8px
+        white-space: nowrap
+        margin: 0 8px 8px 0
+        opacity: .8
+        transition: all .2s ease
+        &:hover
+            opacity: 1
+
+.item
+    width: 100%
+    display: block
+    position: relative
+    z-index: 1
+    border-radius: 16px
+    overflow: hidden
+    margin: 0 auto 60px
+    img
+        width: 100%
+        transition: .6s ease all
+
+    .title
+        width: 100%
+        height: 100%
+        @media screen and ( min-width: 1100px )
+            padding-bottom: 40px
+            transition: .6s ease all
+            text-align: center
+            position: absolute
+            top: 0
+            left: 0
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            transform: translateY(50px)
+            opacity: 0
+            visibility: hidden
+
+    @media screen and ( min-width: 1100px )
+        &:hover
+            opacity: 1
+            img
+                transform: scale(1.05)
+                opacity: .4
+
+            .title
+                visibility: visible
+                opacity: 1
+                transform: translateY(0px)
+
+.card
+    overflow: hidden
+    max-width: unset
+    padding-top: 150px
+    padding-bottom: 0
+    &-gradient
+        display: block
+        width: 100vw
+        height: 500px
+        margin: 0
+        position: relative
+        z-index: -1
+        left: -120px
+        background-color: #FF9A8B
+        
+
+.title
+    &-wrap
+        flex-wrap: wrap
+        align-items: flex-start
+        max-width: 1680px
+        margin: 80px auto 160px
+        .col
+            width: 41%
+
+        p
+            margin-bottom: 24px
+
+        .descr
+            margin-bottom: 5px
+
+        ul, .descr
+            opacity: .6
+
+.info
+    img
+        width: 100%
+        margin-bottom: 30px
+        &:last-of-type
+            margin-bottom: 0
+
+    .col
+        width: 49%
+
+@media screen and ( max-width: 1500px )
+    .main
+        padding-top: 120px
+
+    .card
+        &-gradient
+            left: -72px
+
+@media screen and ( max-width: 1100px )
+    .main
+        height: unset
+        max-height: unset
+        padding-top: 120px
+        ul
+            width: 100%
+
+    .item
+        border-radius: 8px
+        margin-bottom: 40px
+        img
+            margin-bottom: 16px
+
+    .card
+        padding-top: 150px
+        padding-bottom: 40px
+        &-gradient
+            left: -40px
+            height: 300px
+
+    .title
+        &-wrap
+            margin: 0 0 100px
+            .col
+                width: 42%
+                &:last-of-type
+                    width: 54%
+
+    .tags
+        span
+            font-size: 16px
+
+@media screen and ( max-width: 700px )
+    .main
+        h1
+            font-weight: 700
+            font-size: 40px
+            line-height: 48px
+        .title
+            width: 100%
+
+        picture
+            width: 100px
+            height: 100px
+            object-fit: cover
+            margin-bottom: 16px
+
+        ul
+            max-width: 260px
+
+    .item
+        img
+            margin-bottom: 16px
+        .title
+            position: static
+            visibility: visible
+
+    .card
+        padding-top: 120px
+        padding-bottom: 20px
+
+        &-gradient
+            left: -16px
+
+    .title
+        &-wrap
+            margin: 0 0 80px
+            display: block
+            .col
+                width: 100% !important
+
+            p
+                margin-bottom: 16px
+
+    .info
+        padding: 40px 16px
+        .wrap
+            display: block
+
+        img
+            margin-bottom: 24px !important
+
+        .col
+            width: 100%
