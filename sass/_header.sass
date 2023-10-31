@@ -1,156 +1,132 @@
 header,
-nav,
-.lang
+.socials
     display: flex
     justify-content: space-between
     align-items: center
 
 header
-    padding: 40px 120px
-    position: fixed
-    background-color: $black
-    top: 0
-    left: 50%
-    z-index: 99999
-    width: 100%
-    transform: translateX(-50%)
-    backdrop-filter: blur(8px)
-    padding: 20px 120px
-    max-width: 1920px
-    margin: 0 auto
+    padding: 40px 0
+    color: #fff
     .logo
-        font-weight: 600
         font-size: 24px
-        line-height: 29px
-        letter-spacing: 0.005em
+        // text-transform: uppercase
+        font-weight: 700
+        // text-decoration: line-through
 
-    nav
+    .socials
         a
-            font-weight: 600
-            font-size: 16px
-            line-height: 19px
-            padding: 4px 0
-            margin: 0 20px
-            border-bottom: 2px solid transparent
-            &.active,
-            &:hover
-                border-color: #fff
-
-    .menu
-        display: none
-
-    .lang
-        a
-            font-weight: 600
-            font-size: 16px
-            line-height: 19px
-            padding: 10px 0 10px 12px
-            &.active
-                color: #838387
-                pointer-events: none
-
-    @media screen and ( max-width: 1500px )
-        padding: 20px 72px
-        max-width: 100%
-        margin: 0
-        left: 0
-        transform: none
-
-    @media screen and ( max-width: 1100px )
-        transition: all ease .3s
-        height: 69px
-        padding: 20px 40px
-        .logo
-            align-self: flex-start
-
-        nav,
-        .lang
-            display: none
-            animation: menuFade .6s ease forwards
-
-        .menu
-            width: 28px
-            height: 29px
             display: inline-block
-            position: relative
-            align-self: flex-start
-            z-index: 1
-            span
-                width: 90%
-                display: block
-                height: 2px
-                position: absolute
-                right: 0
-                top: 50%
-                transform: translateY(-50%)
-                background-color: #fff
-                transition: all ease .3s
-                &::before,
-                &::after
-                    transition: all ease .3s
-                    content: ''
-                    display: block
-                    width: 28px
-                    right: 0
-                    background-color: #fff
-                    height: 2px
-                    position: absolute
-                    top: -8px
-                &::after
-                    top: 8px
-
-            &.active
-                span
-                    background-color: rgba(0, 0, 0, 0)
-                    &::before
-                        top: 0
-                        transform: rotate(45deg)
-                    &::after
-                        top: 0
-                        transform: rotate(-45deg)
-
-        &.active
-            height: 100%
-            flex-wrap: wrap
-
-            nav,
-            .lang
-                display: block
-                opacity: 0
-                transform: scale(0)
-
-            .lang
-                width: 100%
-                text-align: center
-                align-self: flex-end
-                margin: 0 auto
-                padding-bottom: 30px
-                a
-                    padding: 10px
-
-            nav
-                display: block
-                width: 100%
-                a
-                    text-align: center
-                    border: none
-                    display: block
-                    padding: 10px
-                    font-size: 20px
-                    &.active,
-                    &:hover
-                        opacity: 1
-                        background-color: #fff
-                        color: #000
+            margin: 0 8px
+        img
+            max-width: 30px
 
     @media screen and ( max-width: 700px )
-        height: 57px
-        padding: 14px 16px
+        border-bottom: 1px solid rgba(255, 255, 255, .5)
+        width: calc( 100% - 20px )
+        padding: 14px 0px
+        margin-left: 10px
+        position: relative
 
-@keyframes menuFade
-    0%
-        opacity: 0
-        transform: scale(0)
-    100%
-        opacity: 1
-        transform: scale(1)
+        &::before
+            content: ''
+            width: 100%
+            width: calc( 100% + 20px )
+            position: absolute
+            background-color: rgba(255, 255, 255, .1)
+            height: 101%
+            bottom: -1px
+            left: -10px
+            right: auto 
+            z-index: -1111111
+        
+        .logo
+            font-size: 16px
+            max-width: 80px
+            font-style: italic
+            font-weight: 200
+            &::first-line
+                font-weight: 900
+
+        .socials
+            display: none
+            flex-wrap: wrap
+            max-width: 90px
+            text-align: center
+            a
+                width: 48%
+                margin: 0 0 8px
+
+        .menu
+            display: inline-block
+            vertical-align: middle
+            width: 38px
+            height: 38px
+            margin: 0
+            opacity: 1 !important
+            background-color: transparent
+            position: relative
+            z-index: 999999999
+            &::before
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                background-image: url('../img/contacts.svg')
+                background-repeat: no-repeat
+                background-position: center center
+                background-size: 85%
+                transition: all ease .3s
+
+            span
+                position: absolute
+                top: 45%
+                right: 0
+                display: block
+                width: 35%
+                height: 3px
+                transition: all ease .3s
+                border-radius: 2px
+                background-color: #fff
+                transform: translateY(-14%)
+                border-radius: 4px
+                &::before,
+                &::after
+                    content: ''
+                    display: block
+                    width: 85%
+                    height: 3px
+                    background-color: #fff
+                    border-radius: 4px
+                    position: absolute
+                    top: 7px
+                    right: 0
+                    transition: all ease .3s
+                    border-radius: 2px
+                &::after
+                    width: 75%
+                    top: -7px
+
+            &-active
+                background-color: rgba(0, 0, 0, .3)
+                border-radius: 10px
+                &::before
+                    opacity: 0
+
+                span
+                    width: 50%
+                    top: 50%
+                    height: 2px
+                    right: 50%
+                    transform: translate(50%, -50%) rotate(-45deg)
+                    &::before
+                        width: 100%
+                        top: 50%
+                        right: 50%
+                        height: 2px
+                        transform: translate(50%, -50%) rotate(-90deg)
+                        background-color: #fff
+                    &::after
+                        width: 100%
+                        background-color: transparent

@@ -1,230 +1,618 @@
 @import 'normolize'
+
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    border: none
+    outline: none
+
 @import 'elements'
 @import 'header'
 @import 'footer'
+@import 'modal'
 
-.main
-    min-height: 100vh
-    // max-height: 1480px
-    // padding-top: 100px
-    display: flex
-    justify-content: center
-    align-items: center
-    h1
-        font-weight: 700
-        font-size: 50px
-        line-height: 61px
-        margin: 0 0 12px
-
-    .container
-        align-items: flex-start
-
-    picture
-        width: 38%
-
-    .title
-        width: 58%
-
-    p
-        max-width: 433px
-
-    ul
-        width: 48%
-        li
-
-.tags
-    justify-content: flex-start
-    span
-        display: inline-block
-        font-weight: 400
-        font-size: 20px
-        line-height: 140%
-        padding: 4px 8px
-        border: 1px solid #FFFFFF
-        border-radius: 8px
-        white-space: nowrap
-        margin: 0 8px 8px 0
-        opacity: .8
-        transition: all .2s ease
-        &:hover
-            opacity: 1
-
-.item
-    width: 100%
-    display: block
+main
+    background-color: #000
+    min-height: 650px
+    background-repeat: no-repeat
+    background-position: bottom 20px center
+    background-size: 1400px auto
     position: relative
-    z-index: 1
-    border-radius: 16px
+    padding: 0 0 60px
     overflow: hidden
-    margin: 0 auto 60px
-    img
-        width: 100%
-        transition: .6s ease all
+    z-index: 1
 
-    .title
+    &::before
+        content: ''
+        display: block
         width: 100%
         height: 100%
-        @media screen and ( min-width: 1100px )
-            padding-bottom: 40px
-            transition: .6s ease all
-            text-align: center
+        z-index: 1
+        position: absolute
+        top: 0
+        left: 0
+        background: rgba(0, 0, 0, 0.1)
+        backdrop-filter: $blur
+
+    h1
+        margin: 0
+        padding: 90px 0 0
+        font-weight: 900
+        line-height: 110%
+        font-size: 90px
+        color: #fff
+        text-align: center
+
+    .upper
+        text-transform: uppercase
+        font-style: italic
+        padding-top: 40px
+        line-height: 125%
+        display: block
+
+    .round
+        display: inline-block
+        font-style: normal
+        border: 3px solid #FFF500
+        border-radius: 300px
+        padding: 0px 30px
+        color: #FFF500
+        // transform: rotate(1deg)
+
+.shapes
+    width: 100%
+    height: 100%
+    max-width: 1400px
+    transform: translateX(-50%)
+    top: 0
+    left: 50%
+    z-index: -1000
+    position: absolute
+    .shp
+        border-radius: 50%
+        position: absolute
+        &::before
+            content: ''
+            width: 100%
+            height: 100%
+            border-radius: 50%
             position: absolute
             top: 0
             left: 0
-            display: flex
-            flex-direction: column
-            justify-content: center
-            align-items: center
-            transform: translateY(50px)
-            opacity: 0
-            visibility: hidden
+            animation: fade 3s ease-in-out infinite alternate
 
-    @media screen and ( min-width: 1100px )
-        &:hover
-            opacity: 1
-            img
-                transform: scale(1.05)
-                opacity: .4
+    .shape
+        width: 348px
+        height: 348px
+        background: linear-gradient(180deg, #FF0000 0%, #CD9400 100%)
+        top: 200px
+        left: 100px
+        animation: shape 12s ease-in-out infinite alternate-reverse
+        &::before
+            background: linear-gradient(180deg, #CD9400 0%, #FF0000 100%)
 
-            .title
+        &_2
+            width: 200px
+            height: 200px
+            top: 120px
+            left: 250px
+            animation: shape 8s ease-in-out infinite alternate
+            background: linear-gradient(180deg, #00E676 0%, #CD9400 52%)
+            &::before
+                background: linear-gradient(180deg, #00E676 0%, #FF0000 70%)
+        &_3
+            width: 348px
+            height: 348px
+            bottom: 180px
+            right: 100px
+            animation: shape 16s ease-in-out infinite alternate
+            background: linear-gradient(180deg, #00E676 0%, #CD9400 57.29%)
+            &::before
+                background: linear-gradient(180deg, #CD9400 0%, #00E676 57.29%)
+        &_4
+            width: 220px
+            height: 220px
+            bottom: 100px
+            right: 260px
+            animation: shape 8s ease-in-out infinite alternate reverse
+            background: linear-gradient(180deg, #FF0000 0%, #CD9400 100%)
+            &::before
+                background: linear-gradient(180deg, #CD9400 0%, #FF0000 100%)
+
+.marquee
+    background-color: #FFF500
+    border: 1px solid #000000
+    padding: 13px 0 12px
+    text-align: center
+    position: relative
+    display: flex
+    overflow: hidden
+    &-content
+        // text-transform: uppercase
+        display: flex
+        justify-content: space-between
+        animation: scroll 11s linear infinite
+        overflow: hidden
+        flex-shrink: 0
+
+    &:hover
+        .marquee
+            &-content
+                animation-play-state: paused
+
+    li
+        font-weight: 700
+        font-size: 31px
+        line-height: 150%
+        padding: 0
+        margin: 0
+        &::before
+            content: '\2733'
+            display: inline-block
+            margin: 0 30px
+
+.item
+    width: 49%
+    margin: 0 0 20px
+    border-radius: 20px
+    position: relative
+    z-index: 1
+    overflow: hidden
+    transition: all ease .3s
+    // border: 1px solid transparent
+    &:hover
+        opacity: 1
+
+    img
+        transition: all ease .3s
+        object-fit: cover
+        height: 100%
+        border: 2px solid #8C3AAA
+        border-radius: 20px
+
+    &-body
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 1000
+        color: #fff
+        background-color: rgba(0, 0, 0, .95)
+        padding: 40px 40px
+        border-radius: 20px
+        visibility: hidden
+        opacity: 0
+        transform: scale(.94)
+        transition: all ease .3s
+
+    &-actions
+        position: absolute
+        left: 30px
+        bottom: 50px
+        .btn
+            margin-right: 15px
+
+    &__heading
+        font-weight: 600
+        font-size: 24px
+        margin: 0 0 10px
+
+    &__subheading
+        font-weight: 500
+        font-size: 18px
+        line-height: 150%
+        margin-bottom: 10px
+
+    &__text
+        display: block
+        font-weight: 300
+        font-size: 16px
+        line-height: 150%
+        margin: 0 0 20px
+
+    .cancel
+        display: none
+
+    &:hover
+        img
+            transform: scale(.94)
+
+        @media screen and ( min-width: 1200px )
+            .item-body
                 visibility: visible
                 opacity: 1
-                transform: translateY(0px)
+                transform: scale(1)
 
-.card
-    overflow: hidden
-    max-width: unset
-    padding-top: 150px
-    padding-bottom: 0
-    &-gradient
+    @media screen and ( min-width: 700px )
+        .btn-flt
+            color: #fff
+
+.filter
+    padding: 70px 0 0 40px
+    width: 43%
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    justify-content: flex-end
+    position: relative
+    z-index: 1
+    &::before
+        content: ''
         display: block
-        width: 100vw
-        height: 500px
-        margin: 0
-        position: relative
+        width: calc( 100% + 100px )
+        height: 400px
+        position: absolute
         z-index: -1
-        left: -120px
-        background-color: #FF9A8B
-        
+        top: 0px
+        right: -100px
+        border-radius: 20px
+        background: rgba(#00ff5e, 0.6)
+        backdrop-filter: $blur
 
-.title
+    &::after
+        content: ''
+        display: block
+        width: 400px
+        height: 400px
+        top: 110%
+        left: 50%
+        margin-left: -200px
+        background-color: #000
+        border-radius: 50%
+        position: absolute
+        z-index: -100
+
+    &-btn
+        background-color: transparent
+        color: #000
+        font-size: 22px
+        background-image: url('../img/filter.svg')
+        background-repeat: no-repeat
+        background-position: center left
+        padding: 3px 0 3px 34px
+
+.projects
+    position: relative
+    z-index: 1
+    overflow: hidden
+
     &-wrap
+        margin-bottom: 60px
+        align-items: center
+
+    .container
+        // background-image: url('../img/bg-3.svg')
+        background-repeat: no-repeat
+        background-position: top 50px right 100px
+        padding: 70px 0px 60px
+        position: relative
+        z-index: 1
+
+    .heading
+        width: 55%
+        padding: 70px 0 0
+        position: relative
+        z-index: 1
+        margin-bottom: 0
+        &::before
+            content: ''
+            display: block
+            width: calc( 100% + 100px )
+            height: 400px
+            position: absolute
+            z-index: -1
+            top: 0px
+            left: -100px
+            border-radius: 20px
+            background: rgba(255, 245, 0, 0.6)
+            backdrop-filter: $blur
+
+        &::after
+            content: ''
+            display: block
+            width: 400px
+            height: 400px
+            top: 110%
+            left: 60%
+            margin-left: -200px
+            background-color: #000
+            border-radius: 50%
+            position: absolute
+            z-index: -100
+
+    .wrap
+        display: flex
         flex-wrap: wrap
-        align-items: flex-start
-        max-width: 1680px
-        margin: 80px auto 160px
-        .col
-            width: 41%
-
-        p
-            margin-bottom: 24px
-
-        .descr
-            margin-bottom: 5px
-
-        ul, .descr
-            opacity: .6
+        justify-content: space-between
 
 .info
+    top: 0
+    right: 0
+    z-index: 999
+    position: fixed
+    min-height: 110vh
+    overflow-y: scroll
+    backdrop-filter: $blur
+    width: 100%
+    padding: 30px 10px 20px 10px
+    background-color: rgba(0,0,0,.7)
+    transition: opacity .4s ease, transform .4s ease, visibility .2s ease
+    opacity: 0
+    visibility: hidden
+    transform: translateX(100px)
     img
-        width: 100%
-        margin-bottom: 30px
-        &:last-of-type
-            margin-bottom: 0
+        max-width: 60%
+        display: block
+        margin: 0 auto 15px
+        object-fit: cover
+        border-radius: 50px
+        box-shadow: 10px 10px 0px 0px #b9000080, -10px -10px 0px 0px #31b90080
+        // height: 300px
 
-    .col
-        width: 49%
+    ul
+        li
+            font-size: 16px
+            padding: 0
+            margin: 0 04px
+
+    &__heading
+        width: 90%
+        font-size: 20px
+        font-weight: 600
+        margin: 0 auto 8px
+
+    &__text
+        width: 90%
+        font-size: 16px
+        font-weight: 200
+        line-height: 120%
+        margin: 0 auto 10px
+
+    &.active
+        opacity: 1
+        visibility: visible
+        transform: translateX(0)
+
+@keyframes scroll
+    from
+        transform: translateX(0)
+
+    to
+        transform: translateX(calc(-100%))
 
 @media screen and ( max-width: 1500px )
-    .main
-        padding-top: 120px
+    main
+        min-height: 500px
+        background-size: 1100px auto
+        background-position: bottom center
 
-    .card
-        &-gradient
-            left: -72px
+        h1
+            padding: 40px 0 0
+            font-size: 72px
 
-@media screen and ( max-width: 1100px )
-    .main
-        height: unset
-        max-height: unset
-        padding-top: 120px
-        ul
-            width: 100%
+    .filter
+        padding: 50px 0 0
+        &::before
+            width: calc(100% + 50px)
+            right: -50px
+
+    .projects
+        .heading
+            padding: 50px 0 0
+            &::before
+                width: calc(100% + 50px)
+                left: -50px
+
+@media screen and ( max-width: 1200px )
+    main
+        min-height: 550px
+        h1
+            font-size: 70px
+
+        .upper
+            padding-top: 20px
+
+    .shapes
+        .shape
+            top: 100px
+            &_3,
+            &_4
+                display: none
+                animation: none
 
     .item
-        border-radius: 8px
-        margin-bottom: 40px
+        max-width: 800px
+        margin: 0 auto 30px
+        width: 100%
+        overflow: visible
+
         img
-            margin-bottom: 16px
+            border: none
 
-    .card
-        padding-top: 150px
-        padding-bottom: 40px
-        &-gradient
-            left: -40px
-            height: 300px
+    .filter
+        display: block
+        width: 100%
+        padding: 40px
+        &::before
+            width: 100%
+            height: 100%
+            left: 0
 
-    .title
+        &::after
+            display: none
+
+    .projects
+        .container
+            padding: 30px 15px 0
+
         &-wrap
-            margin: 0 0 100px
-            .col
-                width: 42%
-                &:last-of-type
-                    width: 54%
+            display: block
+            position: relative
+            z-index: 1
+            &::before
+                content: ''
+                width: 300px
+                height: 300px
+                border-radius: 50%
+                background-color: #000
+                position: absolute
+                z-index: -1
+                right: -150px
 
-    .tags
-        span
-            font-size: 16px
+        .heading
+            width: 100%
+            display: block
+            padding: 40px 40px 80px
+            margin-bottom: 10px
+            &::before,
+            &::after
+                display: none
 
 @media screen and ( max-width: 700px )
-    .main
-        h1
-            font-weight: 700
-            font-size: 40px
-            line-height: 48px
-        .title
-            width: 100%
-
-        picture
-            width: 100px
-            height: 100px
-            object-fit: cover
-            margin-bottom: 16px
-
-        ul
-            max-width: 260px
-
     .item
+        margin-bottom: 0px
         img
-            margin-bottom: 16px
-        .title
-            position: static
-            visibility: visible
+            height: unset
+            border-radius: 50px
 
-    .card
-        padding-top: 120px
-        padding-bottom: 20px
+        &-body
+            width: calc( 100% - 35px )
+            background-color: rgba(0,0,0,.7)
+            padding: 80px 10px 30px 40px
+            position: fixed
+            top: 0
+            left: auto
+            right: 0
+            height: 100%
+            z-index: 9999999
+            border-radius: 0
+            backdrop-filter: $blur
+            transition: opacity .4s ease, transform .4s ease, visibility .2s ease
+            transform: translateX(100px)
 
-        &-gradient
-            left: -16px
+        &-actions
+            width: 85%
+            text-align: center
+            .btn
+                margin: 0 0 10px
 
-    .title
+        &__text
+            margin-bottom: 30px
+
+        &__subheading
+            padding-top: 30px
+            border-top: 1px solid #eee
+
+        &-active
+            position: relative
+            z-index: 999999999
+            .item
+                &-body
+                    transition: opacity .1s ease, transform .4s ease, visibility .2s ease
+                    opacity: 1
+                    visibility: visible
+                    transform: translateX(0)
+
+    main
+        min-height: unset
+        background: transparent
+        z-index: unset
+        position: static
+        padding: 0px
+        margin: 0 0 0 auto
+        &::before
+            display: none
+
+        .container
+            z-index: unset
+
+        h1
+            padding: 25px 0 0
+            font-size: 52px
+            text-align: left
+
+        .upper
+            padding-top: 0
+
+        .round
+            font-size: 60px
+            padding: 5px 30px
+            margin-top: 8px
+
+        .content
+            display: none
+
+    .shapes
+        display: none
+
+    .marquee
+        padding: 9px 0 9px
+        width: 110vh
+        position: fixed
+        bottom: -60px
+        left: 3px
+        z-index: 100
+        transform-origin: 0% 0%
+        transform: rotate(-90deg)
+        border-color: #fff
+        background-color: rgba(0, 0, 0, .5)
+        color: #fff
+        li
+            font-weight: 400
+            font-size: 16px
+            padding: 0
+            // padding: 0 15px
+            &::before
+                margin: 0 16px
+
+    .projects
+        overflow: visible
+        z-index: 1
         &-wrap
-            margin: 0 0 80px
-            display: block
-            .col
-                width: 100% !important
+            margin-bottom: 4px
+            padding: 20px 10px 20px 10px
+            background-color: rgba(255, 255, 255, .1)
+            border-radius: 0 0 50px 50px
+            border-top: none
+            &::before
+                display: none
 
-            p
-                margin-bottom: 16px
-
-    .info
-        padding: 40px 16px
         .wrap
             display: block
 
-        img
-            margin-bottom: 24px !important
+        .container
+            padding: 0px 4px 20px 51px
 
-        .col
-            width: 100%
+        .heading
+            font-family: 'Press Start 2P', cursive
+            margin: 0 0 10px
+            font-size: 38px
+            text-transform: uppercase
+            // line-height: 150%
+            // background-image: url('../img/bg-font.svg')
+            // background-repeat: no-repeat
+            // background-size: contain
+            // color: transparent
+            padding: 0
+
+            &::before
+                background-color: transparent
+
+            &::after
+                display: none
+
+    .filter
+        display: block
+        padding: 0
+        background-color: transparent
+        &::before
+            display: none
+        &::after
+            display: none
+
+@media screen and ( max-width: 360px )
+    main
+        h1
+            font-size: 45px
