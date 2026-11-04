@@ -5,11 +5,6 @@
     font-family: var(--font-primary)
     color-scheme: dark
 
-    a:focus-visible,
-    button:focus-visible
-        outline: 2px solid #fff
-        outline-offset: 4px
-
 .hero
     padding: 36px 0 48px
 
@@ -28,29 +23,13 @@
             letter-spacing: -.04em
             text-transform: uppercase
 
-    &__about
-        display: inline-flex
-        align-items: center
-        gap: 6px
-        flex-shrink: 0
-        font: inherit
-        font-size: 15px
-        color: #bbb
-        text-decoration: underline
-        text-underline-offset: 5px
-        cursor: pointer
-        .ic
-            --size: 16px
-        &:hover
-            color: #fff
-
     &__slider
         width: 100%
         min-width: 0
         margin: 0
 
     // Обычный список — также запасной вариант без JavaScript или CDN.
-    &__slider > .swiper-wrapper
+    &__track
         display: block
 
     &__slide
@@ -59,98 +38,64 @@
         &:last-child
             margin-bottom: 0
 
+    &__link
+        display: block
+
     &__image
         width: 100%
         height: auto
         object-fit: contain
 
-    &__content
-        padding: 20px 0 0
-
-    &__num
-        display: block
-        color: #999
-        font-size: 12px
-        margin-bottom: 10px
-        font-variant-numeric: tabular-nums
-
-    &__title
-        font-size: clamp(24px, 2.4vw, 36px)
-        font-weight: 500
-        line-height: 1.15
-        letter-spacing: -.025em
-        margin: 0 0 10px
-
-    &__desc
-        color: #aaa
-        font-size: 15px
-        line-height: 1.5
-
-    &__nav
-        display: none
-
     @media (min-width: 741px)
-        &--slider
-            height: calc(100svh - var(--header-height))
-            min-height: 600px
-            display: flex
-            flex-direction: column
-
-        &--slider &__layout
-            display: grid
-            grid-template-columns: minmax(0, 1fr) 200px
-            gap: 48px
-            flex: 1
-            min-height: 0
-
-        &--slider &__slider
+        --gallery-gap: clamp(24px, 3.2vw, 64px)
+        height: calc(100svh - var(--header-height))
+        padding: 0
+        &__heading
+            display: none
+        &__layout
+            width: 100%
+            max-width: none
             height: 100%
-
-        &--slider &__slider > .swiper-wrapper
+        &__slider
+            height: 100%
+            overflow-x: auto
+            overflow-y: hidden
+            scrollbar-width: none
+            overscroll-behavior: contain
+            &::-webkit-scrollbar
+                display: none
+        &__track
             display: flex
-
-        &--slider &__slide
-            display: grid
-            grid-template-rows: minmax(0, 1fr) auto
+            align-items: center
+            gap: var(--gallery-gap)
+            height: 100%
+            padding: 0 max(28px, calc((100vw - min(64vw, 1100px, (100svh - 180px) * 1.492537)) / 2))
+        &__slide
+            flex: 0 0 auto
+            width: max(260px, min(64vw, 1100px, (100svh - 180px) * 1.492537))
             margin: 0
+        &__image
+            aspect-ratio: 100 / 67
+            user-select: none
+            -webkit-user-drag: none
+        &--slider &__slider
             overflow: hidden
-
+            touch-action: none
+            cursor: grab
+            user-select: none
+            &.is-dragging
+                cursor: grabbing
+        &--slider &__track
+            position: relative
+            display: block
+            padding: 0
+        &--slider &__slide
+            position: absolute
+            top: 50%
+            left: 0
+            will-change: transform
         &--slider &__image
-            height: 100%
-            min-height: 0
-            object-position: left center
-
-        &--slider &__nav
-            display: flex
-            flex-direction: column
-            justify-content: center
-
-    &__nav-label
-        color: #888
-        font-size: 12px
-        letter-spacing: .12em
-        text-transform: uppercase
-        margin-bottom: 20px
-
-    &__projects button
-        display: flex
-        align-items: center
-        gap: 14px
-        width: 100%
-        min-height: 54px
-        border-bottom: 1px solid #303030
-        color: #999
-        font: inherit
-        font-size: 14px
-        text-align: left
-        cursor: pointer
-        span
-            font-size: 11px
-            color: #777
-        &:hover,
-        &[aria-current="true"]
-            color: #fff
-            border-color: #fff
+            will-change: transform, clip-path
 
     @media (max-width: 740px)
         margin: 0 4px 0 var(--mobile-inset)
@@ -167,8 +112,6 @@
                 font-size: clamp(28px, calc((100vw - 106px) / 6), 90px)
                 line-height: 1.3
                 text-wrap: initial
-        &__about
-            display: none
         &__layout
             width: 100%
         &__slider
@@ -179,14 +122,14 @@
             overflow: hidden
         &__image
             border-radius: inherit
-        &__content
-            position: absolute
-            width: 1px
-            height: 1px
-            padding: 0
-            overflow: hidden
-            clip-path: inset(50%)
-            white-space: nowrap
+
+@media (min-width: 741px)
+    html
+        scrollbar-gutter: auto
+    .portfolio
+        overflow: hidden
+        main
+            min-height: 0
 
 .services-rail
     display: none

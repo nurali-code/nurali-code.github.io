@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nurali Davlatov — портфолио</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="portfolio">
@@ -37,71 +36,44 @@
                 <a href="https://wa.me/992915510600" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg class="ic" aria-hidden="true" focusable="false"><use href="img/sprite.svg#max "></use></svg></a>
             </nav>
             <button class="portfolio-header__about" type="button" data-about-open aria-label="Обо мне" aria-haspopup="dialog" aria-controls="about-dialog">
+                <span>Обо мне</span>
                 <svg class="ic" aria-hidden="true" focusable="false"><use href="img/sprite.svg#about"></use></svg>
             </button>
         </div>
     </header>
     <main>
-        <section class="hero" aria-labelledby="works-title">
+        <section class="hero" aria-label="Портфолио">
             <div class="container hero__heading">
                 <h1 id="works-title">Мои работы</h1>
-                <button class="hero__about" type="button" data-about-open aria-haspopup="dialog" aria-controls="about-dialog">обо мне <svg class="ic" aria-hidden="true" focusable="false"><use href="img/sprite.svg#arrow-up-right"></use></svg></button>
             </div>
             <div class="container hero__layout">
-                <div class="hero__slider swiper" aria-label="Проекты">
-                    <div class="swiper-wrapper">
-                        <article class="swiper-slide hero__slide">
-                            <img class="hero__image" src="img/works/1.jpg" alt="Сайт Dögg PRO и Kött PRO" width="2000" height="1340" fetchpriority="high">
-                            <div class="hero__content">
-                                <span class="hero__num">01 / 05</span>
-                                <h2 class="hero__title">Dögg PRO &amp; Kött PRO</h2>
-                                <p class="hero__desc">Лендинг бренда кормов для кошек и собак.</p>
-                            </div>
+                <div class="hero__slider" role="region" aria-roledescription="карусель" aria-label="Проекты. Листайте прокруткой, перетаскиванием или стрелками клавиатуры" tabindex="0">
+                    <div class="hero__track">
+                        <article class="hero__slide">
+                            <a class="hero__link" href="https://dogg-kott.vercel.app/" target="_blank" rel="noopener noreferrer">
+                                <img class="hero__image" src="img/works/1.webp" alt="Сайт Dögg PRO и Kött PRO" width="2000" height="1340" fetchpriority="high" draggable="false">
+                            </a>
                         </article>
-                        <article class="swiper-slide hero__slide">
-                            <img class="hero__image" src="img/works/2.jpg" alt="Сайт выездного шиномонтажа Shiny Migom" width="2000" height="1340" loading="lazy">
-                            <div class="hero__content">
-                                <span class="hero__num">02 / 05</span>
-                                <h2 class="hero__title">Shiny Migom</h2>
-                                <p class="hero__desc">Сайт выездного мобильного шиномонтажа.</p>
-                            </div>
+                        <article class="hero__slide">
+                            <a class="hero__link" href="https://nurali-code.github.io/shiny-migom/" target="_blank" rel="noopener noreferrer">
+                                <img class="hero__image" src="img/works/2.webp" alt="Сайт выездного шиномонтажа Shiny Migom" width="2000" height="1340" loading="lazy" draggable="false">
+                            </a>
                         </article>
-                        <article class="swiper-slide hero__slide">
-                            <img class="hero__image" src="img/works/3.jpg" alt="Промостраница каршеринга Ситидрайв" width="2000" height="1340" loading="lazy">
-                            <div class="hero__content">
-                                <span class="hero__num">03 / 05</span>
-                                <h2 class="hero__title">Ситидрайв</h2>
-                                <p class="hero__desc">Промостраница каршеринга с бонусной акцией.</p>
-                            </div>
+                        <article class="hero__slide">
+                            <img class="hero__image" src="img/works/3.webp" alt="Промостраница каршеринга Ситидрайв" width="2000" height="1340" loading="lazy" draggable="false">
                         </article>
-                        <article class="swiper-slide hero__slide">
-                            <img class="hero__image" src="img/works/4.jpg" alt="Сайт CRM-системы Сделка" width="2000" height="1340" loading="lazy">
-                            <div class="hero__content">
-                                <span class="hero__num">04 / 05</span>
-                                <h2 class="hero__title">Сделка — CRM</h2>
-                                <p class="hero__desc">CRM для агентств недвижимости и риелторов.</p>
-                            </div>
+                        <article class="hero__slide">
+                            <a class="hero__link" href="https://nurali-code.github.io/sdelka/" target="_blank" rel="noopener noreferrer">
+                                <img class="hero__image" src="img/works/4.webp" alt="Сайт CRM-системы Сделка" width="2000" height="1340" loading="lazy" draggable="false">
+                            </a>
                         </article>
-                        <article class="swiper-slide hero__slide">
-                            <img class="hero__image" src="img/works/5.jpg" alt="Сайт аренды интерактивов Photoplace" width="2000" height="1340" loading="lazy">
-                            <div class="hero__content">
-                                <span class="hero__num">05 / 05</span>
-                                <h2 class="hero__title">Photoplace</h2>
-                                <p class="hero__desc">Аренда интерактивов и фотобудок для мероприятий.</p>
-                            </div>
+                        <article class="hero__slide">
+                            <a class="hero__link" href="https://nurali-code.github.io/photoplace/" target="_blank" rel="noopener noreferrer">
+                                <img class="hero__image" src="img/works/5.webp" alt="Сайт аренды интерактивов Photoplace" width="2000" height="1340" loading="lazy" draggable="false">
+                            </a>
                         </article>
                     </div>
                 </div>
-                <nav class="hero__nav" aria-label="Выбор проекта" hidden>
-                    <p class="hero__nav-label">Проекты</p>
-                    <ol class="hero__projects">
-                        <li><button type="button" data-project="0"><span>01</span>Dögg / Kött PRO</button></li>
-                        <li><button type="button" data-project="1"><span>02</span>Shiny Migom</button></li>
-                        <li><button type="button" data-project="2"><span>03</span>Ситидрайв</button></li>
-                        <li><button type="button" data-project="3"><span>04</span>Сделка — CRM</button></li>
-                        <li><button type="button" data-project="4"><span>05</span>Photoplace</button></li>
-                    </ol>
-                </nav>
             </div>
         </section>
     </main>
@@ -124,7 +96,7 @@
             </nav>
         </div>
     </dialog>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
