@@ -1,0 +1,78 @@
+:root
+    --primary: #175CD3
+    --primary-rgb: 23, 92, 211
+    --primary-hover: #1B87DF
+
+    --black: #101828
+    --black-rgb: 16, 24, 40
+
+    --green: #0B884C
+    --green-rgb: 11, 136, 76
+
+    --red: #E41512
+    --red-rgb: 228, 21, 18
+
+    --orange: #FC930B
+    --orange-rgb: 252, 147, 11
+
+    --white: #FFFFFF
+    --border: #E8E9EB
+    --bg: #111
+    --bg-secondary: #1b1b1b
+
+    --cont: 1296px
+    --cont-x: 30px
+
+    --header-height: 62px
+    --section-spacing: 43px
+    --font-primary: "Montserrat", "Arial", sans-serif
+    --font-secondary: "Roboto", "Arial", sans-serif
+
+    @media screen and ( max-width: 1300px )
+        --cont: 1060px
+    @media screen and ( max-width: 1000px )
+        --section-spacing: 34px
+
+    @media screen and ( max-width: 700px )
+        --header-height: 48px
+        --cont-x: 14px
+        --section-spacing: 24px
+
+$primary: var(--primary)
+$white: var(--white)
+$black: var(--black)
+$bg: var(--bg)
+$bg-secondary: var(--bg-secondary)
+$cont: var(--cont)
+$cont-x: var(--cont-x)
+$section-spacing: var(--section-spacing)
+
+@function green($n: null)
+    @if $n
+        @return rgba(var(--green-rgb), $n)
+    @else
+        @return rgb(var(--green-rgb))
+
+@function red($n: null)
+    @if $n
+        @return rgba(var(--red-rgb), $n)
+    @else
+        @return rgb(var(--red-rgb))
+
+@function primary($n: null)
+    @if $n
+        @return rgba(var(--primary-rgb), $n)
+    @else
+        @return rgb(var(--primary-rgb))
+
+@function black($n: null)
+    @if $n == null
+        @return rgb(var(--black-rgb))
+    @else
+        @return rgba(var(--black-rgb), $n)
+
+@function orange($n: null)
+    @if $n == null
+        @return rgb(var(--orange-rgb))
+    @else
+        @return rgba(var(--orange-rgb), $n)

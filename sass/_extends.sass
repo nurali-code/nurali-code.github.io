@@ -1,0 +1,104 @@
+%flex
+    display: flex
+
+%fit-content
+    width: fit-content
+
+%flex-shrink
+    flex: 1
+    
+%flex-noshrink
+    flex-shrink: 0
+
+%flex-jb
+    @extend %flex
+    justify-content: space-between
+
+%flex-wrap
+    @extend %flex
+    flex-wrap: wrap
+
+%flex-col
+    @extend %flex
+    flex-direction: column
+
+%flex-ae
+    @extend %flex
+    align-items: flex-end
+
+%flex-as
+    @extend %flex
+    align-items: flex-start
+
+%flex-ac
+    @extend %flex
+    align-items: center
+
+%flex-ja
+    @extend %flex
+    justify-content: space-around
+
+%flex-je
+    @extend %flex
+    justify-content: flex-end
+
+%flex-jc
+    @extend %flex
+    justify-content: center
+
+%flex-js
+    @extend %flex
+    justify-content: flex-start
+
+%flex-cc
+    @extend %flex
+    align-items: center
+    justify-content: center
+
+%cols
+    @extend %flex-wrap
+    --gap: 24px
+    --col: 4
+    gap: var(--gap)
+    &>*
+        flex-shrink: 0
+        width: calc( (100% - var(--gap) * (var(--col) - 1)) / var(--col) )
+
+    @media screen and ( max-width: 1300px )
+        --col: 2
+
+
+%fade-out-top
+    opacity: 0
+    visibility: hidden
+    transform: translateY(-10px)
+    transition: all .5s ease
+
+%fade-out
+    opacity: 0
+    visibility: hidden
+    transform: translateY(10px)
+    transition: all .5s ease
+
+%fade-in
+    opacity: 1
+    visibility: visible
+    transform: translateY(0)
+
+@keyframes transformIn
+    0%
+        visibility: hidden
+        transform: translateY(10px)
+
+    100%
+        visibility: visible
+        transform: translateY(0)
+
+@keyframes transformOut
+    0%
+        visibility: visible
+        transform: translateY(0)
+
+    100%
+        visibility: hidden
+        transform: translateY(10px)

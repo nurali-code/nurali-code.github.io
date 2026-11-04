@@ -1,0 +1,17 @@
+[data-fade]
+    opacity: 0
+    will-change: opacity, transform
+    transition: opacity 1s ease, transform 1s ease
+
+[data-fade="bottom"]
+    transform: translateY(34px)
+
+[data-fade="left"]
+    transform: translateX(-34px)
+
+[data-fade="right"]
+    transform: translateX(34px)
+
+[data-fade].--visible
+    opacity: 1
+    transform: translate(0)

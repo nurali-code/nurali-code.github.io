@@ -1,0 +1,34 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+__MACOSX/
+
+.vscode/
+.idea/
+tg.php
+.DS_Store
