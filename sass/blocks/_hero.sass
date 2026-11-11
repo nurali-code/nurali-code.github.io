@@ -38,6 +38,8 @@
         &:last-child
             margin-bottom: 0
 
+        &.ui
+
     &__link
         display: block
 
@@ -74,6 +76,12 @@
             flex: 0 0 auto
             width: max(260px, min(64vw, 1100px, (100svh - 180px) * 1.492537))
             margin: 0
+            &.ui
+                width: 50vh
+                img
+                    height: 60vh
+                    aspect-ratio: unset
+
         &__image
             aspect-ratio: 100 / 67
             user-select: none

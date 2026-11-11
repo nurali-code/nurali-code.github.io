@@ -47,8 +47,8 @@ html.has-modal
         height: 40px
         border-radius: 50%
         color: #fff
-        background: rgba(17, 17, 17, .7)
-        border: 1px solid rgba(255, 255, 255, .2)
+        background: rgba(17, 17, 17, .1)
+        border: 1px solid rgba(255, 255, 255, .12)
         -webkit-backdrop-filter: blur(12px)
         backdrop-filter: blur(12px)
         cursor: pointer
@@ -75,6 +75,7 @@ html.has-modal
         text-transform: uppercase
         letter-spacing: .1em
     @media (max-width: 740px)
+        max-width: calc(100% - 46px)
         &__content
             padding: 24px
             padding-bottom: max(24px, env(safe-area-inset-bottom))
